@@ -25,16 +25,16 @@ public class AppointmentController {
     private final DoctorService doctorService;
 
     @GetMapping("/findAllByPatient")
-    public String findAllByPatient(Model model, Principal principal) {
-        List<AppointmentDto> appointments = appointmentService.findAllByUserName(principal.getName());
+    public String findAllFutureAppointmentsByPatient(Model model, Principal principal) {
+        List<AppointmentDto> appointments = appointmentService.findFutureByUserName(principal.getName());
         model.addAttribute("appointments", appointments);
 
         return "appointment/viewAll";
     }
 
     @GetMapping("/findAllPreviousAppointments")
-    public String findAllPreviousAppointments(Model model, Principal principal) {
-        List<AppointmentDto> appointments = appointmentService.findAllByUserName(principal.getName());
+    public String findAllPreviousAppointmentsByPatient(Model model, Principal principal) {
+        List<AppointmentDto> appointments = appointmentService.findPreviousByUserName(principal.getName());
         model.addAttribute("appointments", appointments);
 
         return "appointment/viewAll";

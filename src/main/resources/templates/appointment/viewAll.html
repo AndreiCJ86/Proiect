@@ -31,14 +31,12 @@
         <td class="appointmentId" th:text="${appointment.id}"> Id</td>
 
         <td th:text="${appointment.date}" class="appointmentDate"> Date</td>
-        <td> <button class="edit-appointment-button">Change date</button> </td>
-        <td th:text="${appointment.date}" style="white-space: nowrap;"> Name</td>
-
-        <td style="text-align: center; white-space: nowrap;" th:text="${appointment.doctor.name}">Name</td>
-        <td th:text="${appointment.doctor.specialisation}"> Name</td>
         <td>
-            <button class="delete-appointment-button"> Delete appointment</button>
+            <button class="edit-appointment-button">Change date</button>
         </td>
+        <td th:text="${appointment.doctor.name}"> Name</td>
+        <td th:text="${appointment.doctor.specialisation}"> Name</td>
+        <td> <button class="delete-appointment-button"> Delete appointment</button> </td>
     </tr>
     </tbody>
 </table>
