@@ -17,7 +17,7 @@
     <div class="row d-flex content-center">
         <button class="btn btn-primary" th:if="${isPatient}"
                 onclick="window.location.href='/appointment/findAllByPatient';">
-            View my appointments
+            Future appointments
         </button>
     </div>
     <br/>
@@ -28,7 +28,7 @@
     </div>
     <br/>
     <div class="row d-flex content-center">
-        <button class="btn btn-primary" th:if="${isPatient}" onclick="window.location.href='/appointment/findAllByPatient';">
+        <button class="btn btn-primary" th:if="${isPatient}" onclick="window.location.href='/appointment/findAllPreviousAppointments';">
             Previous Appointments
         </button>
     </div>

@@ -3,6 +3,7 @@ package com.siit.hospital_manager.model;
 import com.siit.hospital_manager.model.dto.AppointmentDto;
 import com.siit.hospital_manager.model.dto.CreateAppointmentDto;
 import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,11 @@ import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "appointments")
-@SuperBuilder
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Appointment {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,47 +41,4 @@ public class Appointment {
                 .doctor(doctor)
                 .build();
     }
-
-    public static Appointment mapDtoToModel(CreateAppointmentDto createAppointmentDto) {
-        return Appointment
-                .builder()
-                .date(LocalDateTime.parse(createAppointmentDto.getDate()))
-                .doctor(createAppointmentDto.getDoctor())
-                .patient(createAppointmentDto.getPatient())
-                .build();
-    }
-
-    public Appointment() {
-    }
-
-    public Appointment(Integer id, LocalDateTime date, Patient patient) {
-        this.id = id;
-        this.date = date;
-        this.patient = patient;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }
-//test
